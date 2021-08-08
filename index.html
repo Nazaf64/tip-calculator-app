@@ -22,27 +22,27 @@
           <div id="input">
             <div class="bill">
               <label class="label" for="bill">Bill</label>
-              <input class="inputField" id="bill" type="text" placeholder="0">
+              <input class="inputField" id="bill" type="number" placeholder="0">
             </div>
             
             
 
             <legend class="label">Select Tip %</legend>
             <div id="tip-selector">
-              <input type="button" value="5%">
-              <input type="button" value="10%">
-              <input type="button" value="15%">
-              <input type="button" value="25%">
-              <input type="button" value="50%">
-              <input id="custom" class="custom" type="text" placeholder="Custom">
+              <input class="button" type="button" value="5%">
+              <input class="button" type="button" value="10%">
+              <input class="button" type="button" value="15%">
+              <input class="button" type="button" value="25%">
+              <input class="button" type="button" value="50%">
+              <input id="custom" class="custom" type="number" placeholder="Custom">
             </div>
           
             <div id="people-container">
-              <label for="people" class="label">Number of People</label>
+              <label for="people" class="label" required>Number of People</label>
               <div id="people-error">Can't be zero</div>
             </div>
             
-            <input id="people" type="text" placeholder="0">
+            <input id="people" type="number" placeholder="0">
           </div>
 
           <div id="output-box">
@@ -60,19 +60,10 @@
 
             <button>Reset</button>
           </div>
-          
-          
-        
-          
-        </div>
-        
-        
+        </div>  
       </div>
-      
-      
- 
     </main>
   </div>
-    
+  <script src="main.js"></script>   
 </body>
 </html>
