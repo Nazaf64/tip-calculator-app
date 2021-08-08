@@ -184,6 +184,24 @@ input[type="button"]#custom{
     color: var(--dark-grayish-cyan);
 }
 
+#people-container{
+    display: grid;
+    grid-template-columns: 6fr 5fr;
+    justify-content: space-between;
+}
+
+#people-error{
+    display: none;
+}
+
+#people-error-show{
+    color: red;
+    font-size: 0.6em;
+    text-align: right;
+    align-self: end;
+    padding-bottom: 0.6em;
+}
+
 #output-box{
     background-color: var(--very-dark-cyan);
     width: 90%;
