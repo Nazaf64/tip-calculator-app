@@ -18,17 +18,86 @@
     color: black;
 }
 
+::-webkit-input-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--dark-grayish-cyan-two);
+    text-align: right;
+    opacity: 1; /* Firefox */
+  }
+
+::-moz-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--dark-grayish-cyan-two);
+    opacity: 1; /* Firefox */
+    text-align: right;
+
+  }
+
+:-ms-input-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--dark-grayish-cyan-two);
+    opacity: 1; /* Firefox */
+    text-align: right;
+
+  }
+
+::-ms-input-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--dark-grayish-cyan-two);
+    opacity: 1; /* Firefox */
+    text-align: right;
+
+  }
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--dark-grayish-cyan-two);
+    opacity: 1; /* Firefox */
+    text-align: right;
+
+  }
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: var(--dark-grayish-cyan-two);
+    text-align: right;
+
+}
+  
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: var(--dark-grayish-cyan-two);
+    text-align: right;
+
+}
+
+/* for the custom input */
+
+.custom::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    text-align: center;
+}
+.custom:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    text-align: center;
+}
+.custom::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    text-align: center;
+}
+.custom:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    text-align: center;
+}
+
 body{
     background-color: var(--light-grayish-cyan);
-    min-height: 100vh;
+    min-height: 90vh;
     display: grid;
     justify-content: center;
     align-content: center;
 }
 
+#container{
+    margin: 3em auto;
+}
+
 #calculator{
     margin: 0 auto;
-    max-width: 55em;
+    max-width: 45em;
     width: 85%;
 }
 
@@ -36,16 +105,25 @@ body{
     display: grid;
     justify-content: center;
     align-content: center;
+    margin-bottom: 3em;
 }
 
 #card-wrapper{
     display: grid;
     grid-template-columns: 1fr 1fr;
     background-color: var(--white);
+    border-radius: 20px;
+}
+
+#input{
+    padding: 2em;
 }
 
 .label{
     display: block;
+    color: var(--dark-grayish-cyan);
+    font-size: 0.6em;
+    margin-bottom: 0.6em;
 }
 
 #tip-selector{
@@ -59,9 +137,34 @@ body{
 input, button{
     border: none;
     border-radius: 5px;
-    padding: 0.1em 0.8em;
+    padding: 0.3em 0.8em;
     font-size: 0.8em;
+}
 
+.bill{
+    margin-bottom: 1.5em;
+}
+
+input#bill, input#people{
+    background-repeat: no-repeat;
+    background-position: 1em;
+    text-align: right;
+}
+
+input#bill{
+    background-image: url('images/icon-dollar.svg');
+}
+
+input[type="text"]:focus{
+    outline: 2px solid var(--strong-cyan);
+}
+
+input#people{
+    background-image: url('images/icon-person.svg');
+}
+
+#tip-selector{
+    margin-bottom: 1.5em;
 }
 
 input[type="text"]{
@@ -73,66 +176,111 @@ input[type="button"]{
     background-color: var(--very-dark-cyan);
     border: none;
     color: var(--white);
-    /* padding: 0.1em 0.8em; */
-    /* min-width: 4.5em; */
-    /* font-size: 0.8em; */
-
+    cursor: pointer;
 }
 
 input[type="button"]#custom{
     background-color: var(--light-grayish-cyan-two);
     color: var(--dark-grayish-cyan);
-    /* font-size: 0.5em; */
 }
 
 #output-box{
     background-color: var(--very-dark-cyan);
-    width: 95%;
-    height: 90%;
-    padding: 1em;
+    width: 90%;
+    height: 87%;
+    padding: 2em;
     justify-self: center;
     align-self: center;
     border-radius: 10px;
 
+    display: grid;
+    align-content: space-between;
 }
 
 #result{
     display: grid;
-    /* justify-content: center; */
     width: 100%;
+    gap: 1em;
 }
 
 .amount{
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: space-between;
-    /* justify-content: center; */
+    align-content: center;
     width: 100%;
     margin: 0 auto;
 }
 
 .amount p{
     justify-self: left;
+    align-self: center;
     color: var(--dark-grayish-cyan-two);
-    font-size: 0.7em;
+    font-size: 0.6em;
 }
 
 strong{
     display: block;
     color: white;
+    font-size: 0.9em;
 }
 
 output{
     justify-self: end;
     color: var(--strong-cyan);
+    font-size: 1.8em;
     font-weight: 700;
 }
 
 button{
+    background-color: var(--dark-grayish-cyan);
+    color: var(--very-dark-cyan);
     width: 100%;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+}
 
+button:hover, input[type="button"]:hover{
+    background-color: var(--strong-cyan);
 }
 
 @media screen and (max-width:850px){
+    #card-wrapper{
+        grid-template-columns: 1fr;
+    }
 
+    #output-box{
+        margin-bottom: 2em;
+    }
+
+    #result{
+        margin-bottom: 1.5em;
+    }
+
+    output{
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width:490px){
+    #container{
+        margin: 0 auto;
+        margin-top: 3em;
+    }
+
+    #card-wrapper{
+        min-width: 315px;
+        width: 100%;
+    }
+
+    #calculator{
+        margin: 0 auto;
+        min-width: 315px;
+        width: 100%;
+    }
+
+    #tip-selector{
+        grid-template-columns: 1fr 1fr;
+    }
 }
