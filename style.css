@@ -1,11 +1,12 @@
 :root{
     --strong-cyan: hsl(172, 67%, 45%);
     --very-dark-cyan: hsl(183, 100%, 15%);
-    --dark-grayis-cyan: hsl(186, 14%, 43%);
+    --dark-grayish-cyan: hsl(186, 14%, 43%);
     --dark-grayish-cyan-two: hsl(184, 14%, 56%);
     --light-grayish-cyan: hsl(185, 41%, 84%);
-    --light-grayish-cyan: hsl(189, 41%, 97%);
+    --light-grayish-cyan-two: hsl(189, 41%, 97%);
     --white: hsl(0, 0%, 100%);
+}
 
 *{
     margin: 0;
@@ -15,4 +16,123 @@
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     color: black;
+}
+
+body{
+    background-color: var(--light-grayish-cyan);
+    min-height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+#calculator{
+    margin: 0 auto;
+    max-width: 55em;
+    width: 85%;
+}
+
+#logo{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+#card-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: var(--white);
+}
+
+.label{
+    display: block;
+}
+
+#tip-selector{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-content: center;
+    gap: 0.4em;
+}
+
+input, button{
+    border: none;
+    border-radius: 5px;
+    padding: 0.1em 0.8em;
+    font-size: 0.8em;
+
+}
+
+input[type="text"]{
+    background-color: var(--light-grayish-cyan-two);
+    width: 100%;
+}
+
+input[type="button"]{
+    background-color: var(--very-dark-cyan);
+    border: none;
+    color: var(--white);
+    /* padding: 0.1em 0.8em; */
+    /* min-width: 4.5em; */
+    /* font-size: 0.8em; */
+
+}
+
+input[type="button"]#custom{
+    background-color: var(--light-grayish-cyan-two);
+    color: var(--dark-grayish-cyan);
+    /* font-size: 0.5em; */
+}
+
+#output-box{
+    background-color: var(--very-dark-cyan);
+    width: 95%;
+    height: 90%;
+    padding: 1em;
+    justify-self: center;
+    align-self: center;
+    border-radius: 10px;
+
+}
+
+#result{
+    display: grid;
+    /* justify-content: center; */
+    width: 100%;
+}
+
+.amount{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    /* justify-content: center; */
+    width: 100%;
+    margin: 0 auto;
+}
+
+.amount p{
+    justify-self: left;
+    color: var(--dark-grayish-cyan-two);
+    font-size: 0.7em;
+}
+
+strong{
+    display: block;
+    color: white;
+}
+
+output{
+    justify-self: end;
+    color: var(--strong-cyan);
+    font-weight: 700;
+}
+
+button{
+    width: 100%;
+
+}
+
+@media screen and (max-width:850px){
+
 }
