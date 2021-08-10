@@ -22,20 +22,10 @@
           <div id="input">
             <div class="bill">
               <label class="label" for="bill">Bill</label>
-              <!-- <input class="inputField" id="bill" type="number" placeholder="0"> -->
-              <!-- <input class="inputField" id="bill" type="number" placeholder="0" onkeyup="return event.charCode >= 48 && event.charCode <= 57"> -->
-              <!-- <input class="inputField" id="bill" type="number" placeholder="0" onkeyup="return event.keyCode >= 91 && event.keyCode <= 65 || event.keyCode == 190"> -->
-
-              <!-- This allows only numbers but excludes '.' -->
-              <!-- <input class="inputField" id="bill" type="number" placeholder="0" oninput="this.value=this.value.replace(/(?![0-9])./gmi,'')"> -->
-
               <input class="inputField" id="bill" type="number" placeholder="0" onkeypress="return isNumberKey(this, event);"
               onchange="setTwoNumberDecimal" step="0.01">
 
-
-            </div>
-            
-            
+            </div>          
 
             <legend class="label">Select Tip %</legend>
             <div id="tip-selector">
@@ -49,10 +39,9 @@
           
             <div id="people-container">
               <label for="people" class="label" required>Number of People</label>
-              <div id="people-error">Can't be zero</div>
-            </div>
-            
-            <input class="inputField" id="people" type="number" placeholder="1" value="1">
+              <div id="people-error" class="people-error">Can't be zero</div>
+            </div>            
+            <input class="inputField" id="people" type="number" placeholder="1" value="1" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
           </div>
 
           <div id="output-box">

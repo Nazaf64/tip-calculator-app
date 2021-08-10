@@ -1,5 +1,3 @@
-console.log("hello");
-
 const bill = document.getElementById("bill");
 const reset = document.getElementById("reset");
 const inputFields = document.getElementsByClassName("inputField");
@@ -9,55 +7,56 @@ const total = document.getElementById("total-output");
 
 reset.addEventListener('click', resetAll);
 bill.addEventListener('keyup', keypressDetect);
+people.addEventListener('keyup', keypressDetect);
+
 
 
 
 window.onload = resetAll;
 
+
+
+
+console.log(people.value);
+
 function resetAll(e){
     for (i = 0; i < inputFields.length; i++){
         inputFields[i].value = "";
     };
+    people.value = 1;
 }
 
+
 function keypressDetect(e){
-    // console.log(e);
-    // console.log(e.charCode);
-    // console.log(e.key);
-    // if(e.charCode >= 48 && e.charCode <= 57){
-        
-    //     return e.key;
-    // } 
-    // console.log(bill.value);
-    // console.log(e.keyCode);
-    // console.log(e.which);
-
-
-    var billValue = bill.value;
-    if(billValue == ""){
-        total.innerText = `$0.00`;
+    if(people.value == 0 || people.value == ""){
+        document.getElementById("people-error").className = "people-error-show";
+        total.innerText = `N/A`;
     } else {
+        document.getElementById("people-error").className = "people-error";
 
-        total.innerText = parseFloat(billValue).toFixed(2);
-        // decimalNumber = bill.value - Math.floor(bill.value);
-        
-        // if (decimalNumber == 0) {
-        //     total.innerText = `$${billValue}.00`; 
-        // } else if (decimalNumber != 0){
-        //     // decimalNumber = Math.abs(decimalNumber);
-        //     // total.innerText = `$${billValue}.${decimalNumber}`;
+        var billValue = bill.value;
 
-        //     // total.innerText = `$${billValue}`;
-        //     twoDecimalNumber = bill.value;
-        //     twoDecimalNumberFloat = parseFloat(twoDecimalNumber);
-        //     showDecimalNumber = twoDecimalNumberFloat.toFixed(2);
-        //     total.innerText = `$${showDecimalNumber}`;
-
-        // }
-
-        // total.innerText = `$${billValue}`;
+        if(billValue == ""){
+            total.innerText = `$0.00`;
+        } else {
+            grossBill = parseFloat(billValue);
+            totalPP = grossBill/people.value;
+            total.innerText = parseFloat(totalPP).toFixed(2);     
+        }
     }
-    // total.innerText = bill.value;
+
+
+
+
+    // var billValue = bill.value;
+
+    // if(billValue == ""){
+    //     total.innerText = `$0.00`;
+    // } else {
+    //     grossBill = parseFloat(billValue);
+    //     totalPP = grossBill/people.value;
+    //     total.innerText = parseFloat(totalPP).toFixed(2);     
+    // }
 }
 
 

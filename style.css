@@ -203,11 +203,11 @@ input[type="button"]#custom{
     justify-content: space-between;
 }
 
-#people-error{
+.people-error{
     display: none;
 }
 
-#people-error-show{
+.people-error-show{
     color: red;
     font-size: 0.6em;
     text-align: right;
