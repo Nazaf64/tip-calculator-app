@@ -108,8 +108,8 @@ body{
 
 #calculator{
     margin: 0 auto;
-    max-width: 45em;
-    width: 85%;
+    /* max-width: 45em; */
+    width: 75%;
 }
 
 #logo{
@@ -219,19 +219,24 @@ input[type="button"]#custom{
     background-color: var(--very-dark-cyan);
     width: 90%;
     height: 87%;
-    padding: 2em;
+    /* padding: 2em; */
     justify-self: center;
     align-self: center;
     border-radius: 10px;
 
     display: grid;
     align-content: space-between;
+
+    overflow-x: scroll;
 }
 
 #result{
     display: grid;
     width: 100%;
     gap: 1em;
+
+    /* margin: 0 auto; */
+    padding: 1.7em;
 }
 
 .amount{
@@ -240,7 +245,9 @@ input[type="button"]#custom{
     justify-content: space-between;
     align-content: center;
     width: 100%;
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    /* margin: 0 1.5em; */
+
 }
 
 .amount p{
@@ -261,22 +268,27 @@ output{
     color: var(--strong-cyan);
     font-size: 1.8em;
     font-weight: 700;
+    /* margin: 0 1em; */
+
+    word-break: break-all;
 }
 
 button{
     background-color: var(--dark-grayish-cyan);
     color: var(--very-dark-cyan);
-    width: 100%;
+    width: 90%;
     cursor: pointer;
     font-weight: 700;
     text-transform: uppercase;
+    margin: 0 auto;
+    margin-bottom: 2em;
 }
 
 button:hover, input[type="button"]:hover{
     background-color: var(--strong-cyan);
 }
 
-@media screen and (max-width:850px){
+@media screen and (max-width:920px){
     #card-wrapper{
         grid-template-columns: 1fr;
     }
@@ -294,19 +306,19 @@ button:hover, input[type="button"]:hover{
     }
 }
 
-@media screen and (max-width:490px){
+@media screen and (max-width:580px){
     #container{
         margin: 0 auto;
         margin-top: 3em;
-    }
+    }    
 
-    #card-wrapper{
+    #calculator{
+        margin: 0 auto;
         min-width: 315px;
         width: 100%;
     }
 
-    #calculator{
-        margin: 0 auto;
+    #card-wrapper{
         min-width: 315px;
         width: 100%;
     }

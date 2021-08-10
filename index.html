@@ -22,7 +22,17 @@
           <div id="input">
             <div class="bill">
               <label class="label" for="bill">Bill</label>
-              <input class="inputField" id="bill" type="number" placeholder="0">
+              <!-- <input class="inputField" id="bill" type="number" placeholder="0"> -->
+              <!-- <input class="inputField" id="bill" type="number" placeholder="0" onkeyup="return event.charCode >= 48 && event.charCode <= 57"> -->
+              <!-- <input class="inputField" id="bill" type="number" placeholder="0" onkeyup="return event.keyCode >= 91 && event.keyCode <= 65 || event.keyCode == 190"> -->
+
+              <!-- This allows only numbers but excludes '.' -->
+              <!-- <input class="inputField" id="bill" type="number" placeholder="0" oninput="this.value=this.value.replace(/(?![0-9])./gmi,'')"> -->
+
+              <input class="inputField" id="bill" type="number" placeholder="0" onkeypress="return isNumberKey(this, event);"
+              onchange="setTwoNumberDecimal" step="0.01">
+
+
             </div>
             
             
@@ -42,23 +52,23 @@
               <div id="people-error">Can't be zero</div>
             </div>
             
-            <input id="people" type="number" placeholder="0">
+            <input class="inputField" id="people" type="number" placeholder="1" value="1">
           </div>
 
           <div id="output-box">
             <div id="result">
               <div id="tip" class="amount">
                 <p><strong>Tip Amount</strong> / person</p>   
-                <output>$0.00</output>
+                <output id="tip-output">$0.00</output>
               </div>
               
               <div id="total" class="amount">
                 <p><strong>Total</strong> / person</p>          
-                <output>$0.00</output>
+                <output id="total-output">$0.00</output>
               </div> 
             </div>
 
-            <button>Reset</button>
+            <button id="reset" type="submit">Reset</button>
           </div>
         </div>  
       </div>
