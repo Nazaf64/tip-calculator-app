@@ -25,6 +25,13 @@ for (i = 0; i < tip.length; i++){
 
 // WHEN A CUSTOM TIP AMOUNT IS ENTERED
 function customTip(e) {
+    // SET THE COLOR OF TIP BUTTONS TO DEFAULT
+    for(i = 0; i < tip.length; i++){
+        tip[i].style.backgroundColor = "hsl(183, 100%, 15%)";
+        tip[i].style.color = "white";
+        tip[i].style.fontWeight = "700";
+    }
+
     tipPercent = e.target.value;
     // billCalculate();
     keypressDetect(e);
@@ -34,9 +41,23 @@ function customTip(e) {
 // WHEN A TIP BUTTON IS SELECTED
 function tipDetect(e){
     custom.value = "";
+
+    tipButtonDefaultColor();    
+
+    e.target.style.backgroundColor = "hsl(185, 41%, 84%)";
+    e.target.style.color = "hsl(183, 100%, 15%)";
+    e.target.style.fontWeight = "700";
+
     tipPercent = parseFloat(e.target.value);
-    billCalculate();
-    
+    billCalculate();  
+}
+
+function tipButtonDefaultColor(){
+    for(i = 0; i < tip.length; i++){
+        tip[i].style.backgroundColor = "hsl(183, 100%, 15%)";
+        tip[i].style.color = "white";
+        tip[i].style.fontWeight = "700";
+    }
 }
 
 
@@ -46,6 +67,13 @@ function resetAll(e){
     for (i = 0; i < inputFields.length; i++){
         inputFields[i].value = "";
     };
+
+    for(i = 0; i < tip.length; i++){
+        tip[i].style.backgroundColor = "hsl(183, 100%, 15%)";
+        tip[i].style.color = "white";
+        tip[i].style.fontWeight = "700";
+    }
+
     custom.value = "";
     people.value = 1;
     tipPercent = "";
@@ -59,6 +87,7 @@ function resetAll(e){
     resetColorChanger();
 }
 
+// RESET BUTTON BACKGROUND COLOR CHANGE BASED ON VALUES IN THE INPUT FIELDS
 function resetColorChanger(){
     if(bill.value == "" && custom.value == "" && tipPercent == "" && people.value == 1){
         reset.style.backgroundColor = "hsl(186, 14%, 43%)";
@@ -68,15 +97,13 @@ function resetColorChanger(){
     }
 }
 
+// MOUSE HOVER OVER RESET BUTTON
 function resetHoverIn(){
-    console.log('mouseEnter');
-    reset.style.backgroundColor = "hsl(185, 41%, 84%)";
-    // reset.style.color = "white";
-    
+    reset.style.backgroundColor = "hsl(185, 41%, 84%);"    
 }
 
+// MOUSE OUT OF THE RESET BUTTON
 function resetHoverOut(){
-    console.log('mouseLeave');
     reset.style.color = "hsl(183, 100%, 15%)";
     resetColorChanger();  
 }
@@ -85,7 +112,6 @@ function resetHoverOut(){
 // WHENEVER KEYPRESS OCCURS IN ANY INPUT FIELD
 function keypressDetect(e){
     resetColorChanger();
-
     billCalculate();
 }
 
