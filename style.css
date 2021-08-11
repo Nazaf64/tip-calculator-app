@@ -285,7 +285,9 @@ button{
 }
 
 button:hover, input[type="button"]:hover{
-    background-color: var(--strong-cyan);
+    background-color: var(--light-grayish-cyan);
+    color: var(--very-dark-cyan);
+    font-weight: 700;
 }
 
 @media screen and (max-width:920px){

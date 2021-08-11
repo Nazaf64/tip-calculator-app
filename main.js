@@ -8,6 +8,8 @@ const tipOutput = document.getElementById("tip-output");
 const total = document.getElementById("total-output");
 
 reset.addEventListener('click', resetAll);
+reset.addEventListener('mouseenter', resetHoverIn);
+reset.addEventListener('mouseout', resetHoverOut);
 bill.addEventListener('keyup', keypressDetect);
 people.addEventListener('keyup', keypressDetect);
 custom.addEventListener('keyup', customTip);
@@ -24,7 +26,8 @@ for (i = 0; i < tip.length; i++){
 // WHEN A CUSTOM TIP AMOUNT IS ENTERED
 function customTip(e) {
     tipPercent = e.target.value;
-    billCalculate();
+    // billCalculate();
+    keypressDetect(e);
 }
 
 
@@ -45,11 +48,44 @@ function resetAll(e){
     };
     custom.value = "";
     people.value = 1;
+    tipPercent = "";
+
+    // tipOutput.innerText = `${0.toFixed(2)}`;
+    // total.innerText = `${0.toFixed(2)}`;
+
+    tipOutput.innerText = "$0.00";
+    total.innerText = "$0.00";
+
+    resetColorChanger();
+}
+
+function resetColorChanger(){
+    if(bill.value == "" && custom.value == "" && tipPercent == "" && people.value == 1){
+        reset.style.backgroundColor = "hsl(186, 14%, 43%)";
+        reset.style.color = "hsl(183, 100%, 15%)";
+    } else if (bill.value != "" || custom.value != "" || tipPercent != "" || people.value != 1) {
+        reset.style.backgroundColor = "hsl(172, 67%, 45%)";
+    }
+}
+
+function resetHoverIn(){
+    console.log('mouseEnter');
+    reset.style.backgroundColor = "hsl(185, 41%, 84%)";
+    // reset.style.color = "white";
+    
+}
+
+function resetHoverOut(){
+    console.log('mouseLeave');
+    reset.style.color = "hsl(183, 100%, 15%)";
+    resetColorChanger();  
 }
 
 
 // WHENEVER KEYPRESS OCCURS IN ANY INPUT FIELD
 function keypressDetect(e){
+    resetColorChanger();
+
     billCalculate();
 }
 
